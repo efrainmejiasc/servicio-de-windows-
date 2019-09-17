@@ -13,17 +13,17 @@ namespace InterfaceServicio.Controllers
     {
         private IEngineInterface Funcion;
 
-
         public HomeController(IEngineInterface _Funcion)
         {
             this.Funcion = _Funcion;
-
         }
+
 
         public ActionResult Index()
         {
             return View();
         }
+
 
         [HttpPost]
         public JsonResult SendParameters(string descripcion, double cantidad)
@@ -33,10 +33,16 @@ namespace InterfaceServicio.Controllers
             bool resultado = Funcion.SendInformacionSocket(json);
             Response response = new Response();
             if (resultado)
+            {
                 response.Respuesta = "Transaccion Exitosa";
+            }
             else
+            {
                 response.Respuesta = "Transaccion Fallida";
+            }
+
             return Json(response);
         }
+
     }
 }
