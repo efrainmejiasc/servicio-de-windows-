@@ -33,6 +33,8 @@ namespace ServicioDeWindows
         protected override void OnStop()
         {
             this.hilo = null;
+            EngineService Funcion = new EngineService();
+            Funcion.EstablecerConexionSocket(pathArchivo, false);
         }
 
         public void Iniciado()

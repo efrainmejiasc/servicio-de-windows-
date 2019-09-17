@@ -52,6 +52,8 @@ namespace ServicioDeWindows.Engine
 
                 socket.Close();
             }
+            socket.Close();
+            ear.Close();
         }
 
         public void GuardarValores(string pathArchivo, string info)

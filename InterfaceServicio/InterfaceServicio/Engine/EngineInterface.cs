@@ -30,14 +30,26 @@ namespace InterfaceServicio.Engine
             return Guid.NewGuid();
         }
 
+        private int Ide()
+        {
+            Random r = new Random(DateTime.Now.Millisecond);
+            return r.Next();
+        }
+
         public TestService ConstruirTestService(string descripcion, double cantidad)
         {
+            bool st = false;
+            if (cantidad % 2 == 0)
+                st = true;
+
             TestService model = new TestService()
             {
+                Id = Ide(),
                 Descripcion = descripcion.ToUpper(),
                 Cantidad = cantidad,
                 Fecha = DateTime.UtcNow,
-                Identidad = IdentificadorReg()
+                Identidad = IdentificadorReg(),
+                Estatus = st
             };
             return model;
         }

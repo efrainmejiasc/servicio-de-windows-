@@ -56,6 +56,10 @@
                 $('#Descripcion').val('');
                 $('#Cantidad').val('');
                 alert(data.Respuesta);
+            },
+            complete: function (data) {
+                $('#Descripcion').val('');
+                $('#Cantidad').val('');
             }
         });
     }
